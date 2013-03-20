@@ -1,0 +1,45 @@
+#start_screen {
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/start_screen/bg_st_sc.jpg);
+    display: none;
+}
+
+#logo {
+    width: 334px;
+    height: 300px;
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    background-position: 0px;
+    background-image: url(../images/start_screen/start_sprite.png);
+    -webkit-animation: logoanim 1s steps(31);
+       -moz-animation: logoanim 1s steps(31);
+        -ms-animation: logoanim 1s steps(31);
+         -o-animation: logoanim 1s steps(31);
+            animation: logoanim 1s steps(31);   
+    animation-delay:0.5s;
+    -webkit-animation-delay: 0.5s; /* Safari and Chrome */    
+    -webkit-animation-fill-mode: forwards;   
+} 
+
+@-webkit-keyframes logoanim {
+   0% { background-position: 0px;}
+   100% { background-position: -10333px; }
+}
+@-moz-keyframes logoanim {
+   0% { background-position: 0px;}
+   100% { background-position: -10333px; }
+}
+@-ms-keyframes logoanim {
+   0% { background-position: 0px;}
+   100% { background-position: -10333px; }
+}
+@-o-keyframes logoanim {
+   0% { background-position: 0px;}
+   100% { background-position: -10333px; }
+}
+@keyframes logoanim {
+   0% { background-position: 0px;}
+   100% { background-position: -10333px; }
+}  

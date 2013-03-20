@@ -1,0 +1,19 @@
+* {
+   padding: 0px;
+   margin: 0px;
+   cursor: default;   
+}
+
+html, body {
+    background-color: white;
+}
+
+#game_area {
+    background: url(../images/start_screen/bg_st_sc.jpg)
+}
+
+#game_canvas {
+    width: 100%;
+    height: 100%;
+    display: none;
+}

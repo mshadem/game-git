@@ -1,0 +1,206 @@
+/* Fonts */
+@font-face {
+    font-family: BIP; /* имя шрифта для CSS правил */
+    src: local("BIP"), /* проверяем наличие шрифта в ОС пользователя */
+         url(BIP.ttf); /* если шрифт не установлен, тогда загружаем его по указанному пути */
+}
+
+@font-face {
+    font-family: Andika; /* имя шрифта для CSS правил */
+    src: local("Andika"), /* проверяем наличие шрифта в ОС пользователя */
+         url(Andika-R.ttf); /* если шрифт не установлен, тогда загружаем его по указанному пути */
+}
+/* Menu text */
+.menu_text {
+    text-align: center;
+    font-family: BIP;
+    font-weight: bold;
+    color: rgb(98,73,9);
+    text-shadow: 1px 1px 0 rgb(246, 215, 181), -1px 1px 0 rgb(246, 215, 181), 1px -1px 0 rgb(246, 215, 181),
+    -1px -1px 0 rgb(246, 215, 181), 0px 1px 0 rgb(246, 215, 181), 0px -1px 0 rgb(246, 215, 181),
+    -1px 0px 0 rgb(246, 215, 181), 1px 0px 0 rgb(246, 215, 181), 2px 2px 0 rgb(246, 215, 181),
+    -2px 2px 0 rgb(246, 215, 181), 2px -2px 0 rgb(246, 215, 181), -2px -2px 0 rgb(246, 215, 181),
+    0px 2px 0 rgb(246, 215, 181), 0px -2px 0 rgb(246, 215, 181), -2px 0px 0 rgb(246, 215, 181),
+    2px 0px 0 rgb(246, 215, 181), 1px 2px 0 rgb(246, 215, 181), -1px 2px 0 rgb(246, 215, 181),
+    1px -2px 0 rgb(246, 215, 181), -1px -2px 0 rgb(246, 215, 181), 2px 1px 0 rgb(246, 215, 181),
+    -2px 1px 0 rgb(246, 215, 181), 2px -1px 0 rgb(246, 215, 181), -2px -1px 0 rgb(246, 215, 181),
+    0px 10px 20px black;
+    filter: progid:DXImageTransform.Microsoft.Chroma(color='f8dbad') 
+            progid:DXImageTransform.Microsoft.Alpha(opacity=100) 
+            progid:DXImageTransform.Microsoft.Blur(pixelradius=0.5)
+            progid:DXImageTransform.Microsoft.dropshadow(OffX=-1, OffY=1, Color=#f8dbad)
+            progid:DXImageTransform.Microsoft.dropshadow(OffX=-1, OffY=0, Color=#f8dbad)
+            progid:DXImageTransform.Microsoft.dropshadow(OffX=1, OffY=-1, Color=#f8dbad)
+            progid:DXImageTransform.Microsoft.dropshadow(OffX=1, OffY=1, Color=#f8dbad)
+            progid:DXImageTransform.Microsoft.dropshadow(OffX=1, OffY=0, Color=#f8dbad)
+            progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=-1, Color=#f8dbad)
+            progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#f8dbad)"
+            progid:DXImageTransform.Microsoft.Shadow(Direction=165, Color='black', Strength=10)";
+    zoom: 1;
+}
+
+/* Big Menu */
+.big_menu, .big_menu  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;     
+}
+
+.big_menu {
+    width: 778px;
+    height: 518px;
+    margin: auto;
+    padding-top: 10px;
+    background: url(../images/menu/common/big_menu_bg.png) 0px 5px no-repeat;
+    overflow: visible;    
+}
+
+.big_menu  .header {
+    height: 80px;
+    margin: auto;
+    display: inline-block;
+    font-size: 30px;    
+    overflow: visible;
+}
+
+.big_menu .container {
+    width: 85%;
+    height: 370px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+/* Back button */
+.back_btn {
+    background: url(../images/menu/common/btn_small.png) 0px 5px no-repeat;
+    display: block;
+    width: 114px;
+    height: 45px; 
+    padding-top: 8px;
+    font-size: 16px;     
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/menu/common/btn_small.png', sizingMethod='scale');       
+}
+
+.back_btn:hover {
+    background: url(../images/menu/common/btn_small_h.png) 0px 5px no-repeat;
+    width: 130px;
+    padding-top: 6px;
+    font-size: 18px; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/menu/common/btn_small_h.png', sizingMethod='scale');    
+}
+
+.close_button {
+    background: url(../images/menu/common/close.png) 0px 5px no-repeat;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin-left: 130px;
+}
+
+.close_button:hover {
+    background: url(../images/menu/common/close_h.png) 0px 5px no-repeat;
+}
+
+/* Friends panel */
+#friends_panel {
+    border: 1px solid white;
+    height: 80px;
+    background: black;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;    
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Descriptiom panel */
+.desc_panel {
+    display: table-cell;
+    vertical-align: middle;
+    background: url(../images/menu/common/desc_panel.png) 0px 5px no-repeat;
+    background-size: cover;   
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/menu/common/desc_panel.png', sizingMethod='scale');    
+}
+
+/* Small button */
+.small_btn:hover {
+    background: url(../images/menu/common/btn_small_h.png) 0px 5px no-repeat;
+    background-size: cover;  
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/menu/common/btn_small_h.png', sizingMethod='scale');  
+}
+
+.small_btn {
+    background: url(../images/menu/common/btn_small.png) 0px 5px no-repeat;
+    background-size: cover;   
+    display: block;    
+    margin: auto;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/menu/common/btn_small.png', sizingMethod='scale');    
+}
+
+/* Big button */
+.big_btn {
+    background: url(../images/menu/common/btn_big.png) -15px 10px no-repeat;
+    background-size: cover;   
+    display: block;    
+    margin: auto;
+    width: 271px;
+    height: 98px;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/menu/common/btn_small.png', sizingMethod='scale');  
+    padding: 20px;
+}
+
+/* Arrows */
+.arrow{ 
+    background: url(../images/menu/common/arrow.png) top left no-repeat;    
+    width: 50px;
+    height: 50px;  
+}
+
+.arrow:hover {
+    -webkit-animation: arrowplay .3s steps(7) infinite;
+       -moz-animation: arrowplay .3s steps(7) infinite;
+        -ms-animation: arrowplay .3s steps(7) infinite;
+         -o-animation: arrowplay .3s steps(7) infinite;
+            animation: arrowplay .3s steps(7) infinite;                         
+} 
+
+.arrow_left {     
+    float: left;
+}
+
+.arrow_right {  
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+    float: left;
+}
+
+@-webkit-keyframes arrowplay {
+   from { background-position: 0px; }
+     to { background-position: -350px; }
+}
+@-moz-keyframes arrowplay {
+   from { background-position:    0px; }
+     to { background-position: -350px; }
+}
+@-ms-keyframes arrowplay {
+   from { background-position:    0px; }
+     to { background-position: -350px; }
+}
+@-o-keyframes arrowplay {
+   from { background-position:    0px; }
+     to { background-position: -350px; }
+}
+@keyframes arrowplay {
+   from { background-position:    0px; }
+     to { background-position: -350px; }
+}  
+
+#menu_preload {
+    display: none;
+}

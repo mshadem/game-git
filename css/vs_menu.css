@@ -1,0 +1,88 @@
+#vs_menu  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;     
+}
+
+#vs_menu  {
+    display: none;
+    height: 520px;    
+}
+
+#vs_menu .header  {
+    width: 332px;
+    margin-left: 230px;    
+    background: url(../images/menu/vs_menu/header.png) 0px 15px no-repeat;
+}
+
+#vs_menu .game_type {
+    height: 100%;
+    width: 33.333%;
+    float: left;
+}
+
+#vs_menu .game_type  .gt_img {
+    width: 100%;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: 0px 15px;    
+    margin-bottom: 30px;
+}
+
+#vs_menu .game_type #mp {
+    background-image: url(../images/menu/vs_menu/mp.png);
+}
+#vs_menu  #mp_txt {
+    width: 190px;
+    margin: auto;
+    height: 44px;    
+    background: url(../images/menu/vs_menu/mp_txt.png) 0px 5px no-repeat;
+}
+#vs_menu .game_type #pvp {
+    background-image: url(../images/menu/vs_menu/pvp.png);
+}
+#vs_menu  #pvp_txt {
+    width: 129px;
+    margin: auto;
+    height: 44px;    
+    background: url(../images/menu/vs_menu/pvp_txt.png) 0px 5px no-repeat;
+}
+#vs_menu .game_type #pc {
+    background-image: url(../images/menu/vs_menu/pc.png);
+}
+#vs_menu  #pc_txt {
+    width: 201px;
+    margin: auto;
+    height: 44px;    
+    background: url(../images/menu/vs_menu/pc_txt.png) 0px 5px no-repeat;
+}
+
+#vs_menu .game_type .desc_panel {
+    width: 221px;
+    height: 100px;
+    padding: 15px;
+    padding-top: 0px;
+    background-position: -15px 0px;
+}
+
+#vs_menu .game_type .small_btn {
+    width: 100px;
+    height: 40px;
+    padding-top: 3px;
+    padding-left: 3px;
+    background-position: 0px 0px;     
+    margin-top: -30px;   
+}
+
+#vs_menu .game_type .small_btn:hover {
+    width: 128px;
+    height: 42px;        
+}
+
+#vs_menu .game_type .small_btn .go {
+    width: 60%;
+    height: 60%;
+    margin: auto;
+    background: url(../images/menu/vs_menu/go.png) 0px 0px no-repeat;
+    background-size: cover;
+}

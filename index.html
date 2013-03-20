@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>    
+        <script src="http://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>    
+        <script src="js/grid/grid.js"></script>        
+        <script src="js/grid/hex_calcs.js"></script>        
+        <script src="js/grid/hexagon_tools.js"></script>        
+        <script src="js/common.js"></script>        
+        <script src="js/consts.js"></script>        
+        <script src="js/tools.js"></script>        
+        <script src="js/static_object.js"></script>        
+        <script src="js/bonus_object.js"></script>        
+        <script src="js/preload_images.js"></script>        
+        <script src="js/map.js"></script>        
+        <script src="js/game_engine.js"></script>        
+        <link rel="stylesheet" type="text/css" href="css/style.css" />          
+        <link rel="stylesheet" type="text/css" href="css/start_screen.css" />          
+        <link rel="stylesheet" type="text/css" href="css/common.css" />          
+        <link rel="stylesheet" type="text/css" href="css/main_menu.css" />          
+        <link rel="stylesheet" type="text/css" href="css/vs_menu.css" />          
+        <link rel="stylesheet" type="text/css" href="css/race_sel_menu.css" />          
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    </head>
+    <body>
+        <audio id="button_sound" src="audio/sound.mp3"></audio>
+        <div id="game_area">
+            <div id="start_screen">
+                <div id="logo"></div>
+            </div>        
+            <div id="main_menu">
+                <div class="mm_btn">
+                    <label id="story_mode" onclick="switchMenu()"></label>
+                    <div id="story_mode_txt" class="txt"></div>                            
+                </div>
+                <div class="mm_btn">                
+                    <label id="vs_mode" onclick="switchMenu(VS_MENU)"></label>
+                    <div id="vs_mode_txt" class="txt"></div>                            
+                </div>
+                <div class="mm_btn">                        
+                    <label id="stat" onclick="switchMenu()"></label>
+                    <div id="stat_txt" class="txt"></div>                    
+                </div>
+                <div class="mm_btn">                        
+                    <label id="arsenal" onclick="switchMenu()"></label>
+                    <div id="arsenal_txt" class="txt"></div>
+                </div>                        
+            </div>
+            <div id="vs_menu" class="big_menu">
+                <div class="header"></div>
+                <div class="close_button" onclick="openMainMenu(true)"></div>
+                <div class="container">
+                    <div class="game_type">
+                        <div id="mp" class="gt_img"></div>
+                        <div class="desc_panel menu_text"><div id="mp_txt"></div></div>
+                        <label class="small_btn menu_text"><div class="go"></div></label>                        
+                    </div>
+                    <div class="game_type">
+                        <div id="pvp" class="gt_img"></div>     
+                        <div class="desc_panel menu_text"><div id="pvp_txt"></div></div>    
+                        <label class="small_btn menu_text" onclick="switchMenu(RACE_SEL_MENU)"><div class="go"></div></label>                            
+                    </div>
+                    <div class="game_type">
+                        <div id="pc" class="gt_img"></div>                    
+                        <div class="desc_panel menu_text"><div id="pc_txt"></div></div>               
+                        <label class="small_btn menu_text"><div class="go"></div></label>                           
+                    </div>
+                </div>
+            </div>
+            <div id="race_sel_menu"  class="big_menu">
+                <div class="header menu_text">ХОТСИТ</div>    
+                <label class="back_btn menu_text" onclick="switchMenu(VS_MENU)"><- НАЗАД</label>                
+                <div class="container">                
+                    <div class="pl_holder">
+                        <div class="race_img" id="p1Race"></div>
+                        <div class="race_ready" id="p1Ready"></div>                        
+                        <div class="big_btn">
+                            <label class="arrow arrow_left" onclick="changeRace(game.activePlayer, -1)"></label>
+                            <div class="raceName menu_text" id="p1raceName">МЕДВЕДИ</div>
+                            <label class="arrow arrow_right" onclick="changeRace(game.activePlayer, 1)"></label>
+                        </div>
+                        <div class="desc_panel menu_text">БЛА-БЛА-БЛА-БЛА-БЛА-БЛА-БЛА-БЛА-БЛА-БЛА</div>                    
+                        <label class="small_btn menu_text" onclick="selectRace(game.activePlayer, P1_RACE, 'p1Ready')">ПРИНЯТЬ</label>                            
+                    </div>
+                    <div class="pl_holder">
+                        <div class="race_img" id="p2Race"></div> 
+                        <div class="race_ready"  id="p2Ready"></div>
+                        <div class="big_btn">
+                            <label class="arrow arrow_left" onclick="changeRace(game.enemyPlayer, -1)"></label>
+                            <div class="raceName menu_text" id="p2raceName">МЕДВЕДИ</div>                            
+                            <label class="arrow arrow_right" onclick="changeRace(game.enemyPlayer, 1)"></label>
+                        </div> 
+                        <div class="desc_panel menu_text">БЛА-БЛА-БЛА-БЛА-БЛА-БЛА-БЛА-БЛА-БЛА-БЛА</div>    
+                        <label class="small_btn menu_text" onclick="selectRace(game.enemyPlayer, P2_RACE, 'p2Ready')">ПРИНЯТЬ</label>                          
+                    </div>  
+                </div>                      
+            </div>              
+            <canvas id="game_canvas"></canvas>
+            <div id="friends_panel"></div>                   
+        </div>
+        <div id="menu_preload" style="display: none;">
+            <img src="images/bg.jpg"/>
+            <img src="images/menu/bottom_menu/bm_bg.png"/>
+            <img src="images/menu/bottom_menu/buttons/dig.png"/>
+            <img src="images/menu/bottom_menu/buttons/dig_a.png"/>
+            <img src="images/menu/bottom_menu/buttons/dig_h.png"/>
+            <img src="images/menu/bottom_menu/buttons/grid.png"/>
+            <img src="images/menu/bottom_menu/buttons/grid_a.png"/>
+            <img src="images/menu/bottom_menu/buttons/grid_h.png"/>
+            <img src="images/menu/common/arrow.png"/>
+            <img src="images/menu/common/big_menu_bg.png"/>
+            <img src="images/menu/common/btn_big.png"/>
+            <img src="images/menu/common/btn_small.png"/>
+            <img src="images/menu/common/btn_small_h.png"/>
+            <img src="images/menu/common/desc_panel.png"/>
+            <img src="images/menu/common/dp_btn.png"/>
+            <img src="images/menu/common/dp_btn_h.png"/>
+            <img src="images/menu/common/plate.png"/>
+            <img src="images/menu/common/start_bg.jpg"/>
+            <img src="images/menu/main_menu/btn_arsenal.png"/>
+            <img src="images/menu/main_menu/btn_arsenal_h.png"/>
+            <img src="images/menu/main_menu/btn_stat.png"/>
+            <img src="images/menu/main_menu/btn_stat_h.png"/>
+            <img src="images/menu/main_menu/btn_story_mode.png"/>
+            <img src="images/menu/main_menu/btn_story_mode_h.png"/>
+            <img src="images/menu/main_menu/btn_vs_mode.png"/>
+            <img src="images/menu/main_menu/btn_vs_mode_h.png"/>
+            <img src="images/menu/main_menu/txt_arsenal.png"/>
+            <img src="images/menu/main_menu/txt_stat.png"/>
+            <img src="images/menu/main_menu/txt_vs_mode.png"/>
+            <img src="images/menu/race_sel_menu/img_bears.png"/>
+            <img src="images/menu/race_sel_menu/img_cats.png"/>
+            <img src="images/menu/race_sel_menu/img_dears.png"/>
+            <img src="images/menu/race_sel_menu/img_mouses.png"/>
+            <img src="images/menu/race_sel_menu/img_squirrels.png"/>
+            <img src="images/menu/race_sel_menu/ready_sprite.png"/>
+            <img src="images/menu/vs_menu/mp.png"/>
+            <img src="images/menu/vs_menu/pc.png"/>
+            <img src="images/menu/vs_menu/pvp.png"/>
+            <img src="images/start_screen/bg_st_sc.jpg"/>
+            <img src="images/start_screen/start_sprite.png"/>            
+        </div>
+    </body>
+</html>
